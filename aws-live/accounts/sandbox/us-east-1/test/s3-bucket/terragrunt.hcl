@@ -1,6 +1,6 @@
 terraform {
-    # source = "git::ssh://git@github.com/benjamin-cloud-pi/terraform-aws-modules.git//modules/s3-bucket?ref=v1.0.1"
-      source = "/mnt/c/Users/BenjaminCastillo/Desktop/aws-well/modules/s3-bucket"
+     source = "git::ssh://git@github.com/benjamin-cloud-pi/terraform-aws-modules.git//modules/s3-bucket?ref=v1.0.1"
+    # source = "/mnt/c/Users/BenjaminCastillo/Desktop/aws-well/modules/s3-bucket"
 }
 
 inputs = {
