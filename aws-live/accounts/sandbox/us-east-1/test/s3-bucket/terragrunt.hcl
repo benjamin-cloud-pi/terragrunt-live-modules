@@ -1,5 +1,6 @@
 terraform {
-    source = "git::ssh://git@github.com/benjamin-cloud-pi/terraform-aws-modules.git//modules/s3-bucket?ref=v1.0.0"
+    # source = "git::ssh://git@github.com/benjamin-cloud-pi/terraform-aws-modules.git//modules/s3-bucket?ref=v1.0.1"
+      source = "/mnt/c/Users/BenjaminCastillo/Desktop/aws-well/modules/s3-bucket"
 }
 
 inputs = {
@@ -8,8 +9,8 @@ inputs = {
     name    = "benjacloudaws"
 
     tags = {
-        Owner   = "platform"
-        ConstCenter = "shared"
+        Owner = "platform"
+        CostCenter = "shared"
     }
 
     force_destroy = false
@@ -17,13 +18,12 @@ inputs = {
     versioning_enabled  = true
     enable_secure_transport = true
 
-    enable_lifecycle    = true
-    lifecycle_transitions_to_ia_days = 30
-    lifecycle_transitions_to_glacier_days = 90
-    lifecycle_expiration_days = 365
+    enable_lifecycle = true
 
-    abort_incomplete_multipart_upload_days = 7
+    lifecycle_transition_to_ia_days = 30
+    lifecycle_transition_to_glacier_days = 90
 
-    # En caso que el modulo acepte kms_key_id y queres usar la key administrada aws/s3:
-    kms_key_id = null
+    # Recomendado para evitar borrando de forma automatica objetos
+    lifecycle_expiration_days = null
+    
 }
